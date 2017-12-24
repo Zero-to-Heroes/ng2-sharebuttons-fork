@@ -43,7 +43,7 @@ export var ShareButtonsService = (function () {
         /** Emit clicked button */
         if (this.window) {
             var pollTimer_1 = this.window.setInterval(function () {
-                if (popUp.closed) {
+                if (!popUp || popUp.closed) {
                     _this.window.clearInterval(pollTimer_1);
                     popUpClosed.emit(type);
                 }
